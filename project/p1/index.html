@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="app-title">
+                <i data-feather="check-square"></i>
+                Task Manager
+            </h1>
+            <div class="stats">
+                <span class="stat-item">
+                    <span class="stat-label">Active:</span>
+                    <span id="active-count" class="stat-value">0</span>
+                </span>
+                <span class="stat-item">
+                    <span class="stat-label">Completed:</span>
+                    <span id="completed-count" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Task Creation Form -->
+        <section class="task-form-section">
+            <form id="task-form" class="task-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            id="task-title" 
+                            class="form-input" 
+                            placeholder="Task title" 
+                            required
+                            maxlength="100"
+                        >
+                        <span class="error-message" id="title-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea 
+                            id="task-description" 
+                            class="form-input" 
+                            placeholder="Description (optional)"
+                            rows="1"
+                            maxlength="500"
+                        ></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="task-due-date" class="form-label">Due Date:</label>
+                        <input 
+                            type="datetime-local" 
+                            id="task-due-date" 
+                            class="form-input"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="task-priority" class="form-label">Priority:</label>
+                        <select id="task-priority" class="form-input">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submit-btn">
+                        <i data-feather="plus"></i>
+                        <span id="submit-text">Add Task</span>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Filters -->
+        <section class="filters-section">
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">
+                    All Tasks
+                </button>
+                <button class="filter-btn" data-filter="active">
+                    Active
+                </button>
+                <button class="filter-btn" data-filter="completed">
+                    Completed
+                </button>
+            </div>
+            <div class="actions">
+                <button id="clear-completed" class="btn btn-secondary">
+                    <i data-feather="trash-2"></i>
+                    Clear Completed
+                </button>
+            </div>
+        </section>
+
+        <!-- Tasks List -->
+        <section class="tasks-section">
+            <div id="tasks-container" class="tasks-container">
+                <div id="empty-state" class="empty-state">
+                    <i data-feather="clipboard"></i>
+                    <h3>No tasks yet</h3>
+                    <p>Create your first task to get started!</p>
+                </div>
+                <ul id="tasks-list" class="tasks-list"></ul>
+            </div>
+        </section>
+
+        <!-- Keyboard Shortcuts Help -->
+        <div id="shortcuts-help" class="shortcuts-help">
+            <h4>Keyboard Shortcuts</h4>
+            <div class="shortcut-list">
+                <div class="shortcut-item">
+                    <kbd>Ctrl</kbd> + <kbd>N</kbd> - New Task
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Ctrl</kbd> + <kbd>E</kbd> - Edit Selected
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Delete</kbd> - Delete Selected
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Space</kbd> - Toggle Complete
+                </div>
+                <div class="shortcut-item">
+                    <kbd>?</kbd> - Toggle Help
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Confirm Action</h3>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">Are you sure you want to proceed?</p>
+            </div>
+            <div class="modal-footer">
+                <button id="modal-cancel" class="btn btn-secondary">Cancel</button>
+                <button id="modal-confirm" class="btn btn-danger">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
