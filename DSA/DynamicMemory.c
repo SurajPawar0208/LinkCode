@@ -1,6 +1,7 @@
 // DynamicMemory.c
 // Demonstrates malloc, calloc, realloc and free in C
-#include <stdio.h>
+#include<stdio.h>
+
 #include <stdlib.h>
 
 typedef struct {
