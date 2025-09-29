@@ -6,46 +6,54 @@
     <title>Document</title>
 </head>
 <body>
-    <table border="3px">
-      <thead>
-        <th colspan="2">
-        Fill the Form below
-        </th>
-      </thead>
-      <tbody>
+        <form action="./student.html" method="post">
+        <table border="3">
+            <thead>
+                <tr>
+                    <th colspan="2">Fill the Form below</th>
+                </tr>
+            </thead>
+            <tbody>
         <tr>
-            <td>Name</td>
-            <td><input type="text"></td>
+            <td><label for="name">Name</label></td>
+            <td><input type="text" id="name" name="name" required></td>
         </tr>
         <tr>
-            <td>Password</td>
-            <td><input type="text"></td>
-        </tr> 
+            <td><label for="password">Password</label></td>
+            <td><input type="password" id="password" name="password" required></td>
+        </tr>
         <tr>
-            <td>Feedback</td>
-            <td><textarea ></textarea></td>
+            <td><label for="feedback">Feedback</label></td>
+            <td><textarea id="feedback" name="feedback"></textarea></td>
         </tr>
         <tr>
             <td>Gender</td>
-            <td><input type="radio">Male
-            <input type="radio">Female</td>
-        </tr>
-        <tr>
-            <td>subject</td>
-            <td><input type="checkbox">Web
-            <input type="checkbox">MAth
-            <input type="checkbox">Graphic
-            <input type="checkbox">English
+            <td>
+              <input type="radio" id="male" name="gender" value="male"><label for="male">Male</label>
+              <input type="radio" id="female" name="gender" value="female"><label for="female">Female</label>
             </td>
         </tr>
-
-        <tfoot>
-            <tr>
-                <td></td>
-                <td><input type="button" value="Reset">
-                <input type="button" value="Submit"></td>
-            </tr>
-        </tfoot>
+        <tr>
+            <td>Subject</td>
+            <td>
+              <input type="checkbox" id="sub-web" name="subject" value="web"><label for="sub-web">Web</label>
+              <input type="checkbox" id="sub-math" name="subject" value="math"><label for="sub-math">Math</label>
+              <input type="checkbox" id="sub-graphic" name="subject" value="graphic"><label for="sub-graphic">Graphic</label>
+              <input type="checkbox" id="sub-english" name="subject" value="english"><label for="sub-english">English</label>
+            </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td>
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+    </form>
       </tbody>
     </table>
 </body>
