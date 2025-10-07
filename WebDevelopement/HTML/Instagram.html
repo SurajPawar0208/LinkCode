@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+  .parent{
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25%;
+  background-image: linear-gradient(45deg, rgb(255, 220, 128), rgb(255, 105, 55), rgb(245, 96, 64), rgb(193, 53, 132),rgb(131, 58, 180),rgb(223, 64, 157),rgb(36, 37, 42));
+  }
+  .child{
+    width: 170px;
+    height: 170px;
+    border: 20px solid rgb(240, 233, 233);
+    background-color: transparent;
+    border-radius: 25%;
+  }
+  .ch{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 20px solid rgb(252, 254, 255);
+    display: relative;
+    margin: auto;
+    margin-top: -20px;
+  }
+  .c{
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+    border: 10px solid white;
+    background-color: white;
+    margin-left: 130px;
+    margin-top: 20px;
+  }
+
+</style>
+</head>
+<body>
+    <div class="parent" > 
+    <div class="child" >
+      <div class="c"></div>
+      <div class="ch"></div>
+    </div> 
+    </div>   
+</body>
+</html>

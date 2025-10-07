@@ -1,0 +1,23 @@
+[
+  {
+    "id": "p1",
+    "name": "Blue T-shirt",
+    "price": 19.99,
+    "image": "/images/blue-tee.jpg",
+    "description": "Soft cotton t-shirt"
+  },
+  {
+    "id": "p2",
+    "name": "Green Hoodie",
+    "price": 39.99,
+    "image": "/images/green-hoodie.jpg",
+    "description": "Cozy hoodie"
+  },
+  {
+    "id": "p3",
+    "name": "Sneakers",
+    "price": 59.99,
+    "image": "/images/sneakers.jpg",
+    "description": "Comfortable sneakers"
+  }
+]

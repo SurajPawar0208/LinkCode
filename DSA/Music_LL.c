@@ -6,10 +6,7 @@
 struct Song {
     char name[100];
     struct Song* next;
-};
-
-struct Song* head = NULL;
-struct Song* current = NULL;
+}* head = NULL,* current = NULL;
 
 // Add song to end of playlist
 void addSong(char name[]) {
