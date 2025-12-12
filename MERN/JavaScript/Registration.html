@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION FORM</title>
+</head>
+<body>
+   <div>
+        <h1>LOGIN FORM</h1>
+        <form onsubmit="return welcome()">
+
+                <label for="U_Name"></label>
+                <input type="text" id="U_Name" name="name" placeholder="Enter  name" >
+                <br>
+                <br>
+                <label for="E_id"></label>
+                <input type="email" name="id" id="E_id" placeholder="Enter  email">
+                <br>
+                <br>
+                <br>
+                <label for="Create_password"></label>
+                <input type="password" id="Create_password" placeholder=" Password">
+                <br>
+                <br>
+                <label for="reenter_password"></label>
+                <input type="password" id="reenter_password" placeholder="Reenter ">
+                <br>
+                <br>
+
+                <button type="submit" >SUBMIT</button> 
+        </form>
+    </div>
+
+</body>
+<script>
+    function welcome(){
+        var name = document.getElementById("U_Name").value;
+        var id = document.getElementById("E_id").value;
+        var createpass = document.getElementById("Create_password").value;
+        var reenter = document.getElementById("reenter_password").value;
+
+        if(name.trim() === ""){
+            alert("Please enter your name");
+            return false;
+        }
+        if(id.trim() === ""){
+            alert("Please enter email id");
+            return false;
+        }
+        else if(!id.includes("@")){
+            alert("Please enter a valid email id");
+            return false;
+        }
+        else if(!id.includes(".")){
+            alert("Please enter a valid email id");
+            return false;
+        }
+            if(createpass.trim() === ""){
+            alert("Please create a password");
+            return false;
+        }
+        else if(createpass.length < 6){
+            alert("Password must be at least 6 characters long");
+            return false;
+        }
+        else if(!/[A-Z]/.test(createpass)){
+            alert("Password must contain at least one uppercase letter");
+            return false;   
+        }
+        else if(!/[a-z]/.test(createpass)){
+            alert("Password must contain at least one lowercase letter");
+            return false;   
+        }
+        else if(!/[0-9]/.test(createpass)){
+            alert("Password must contain at least one number");
+            return false; 
+        }else if(!/[!@#$%^&*]/.test(createpass)){
+            alert("Password must contain at least one special character");
+            return false;  
+        } 
+
+        if(reenter !== createpass){
+            alert("Passwords don't match");
+            return false;
+        }
+        alert("Log In Successfull ");
+        return true;
+
+    }
+</script>
+
+    <style>
+               
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: rgb(71, 210, 196);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div {
+            background-color:rgb(255, 255, 255);
+            padding: 40px;
+            border-radius: 20px;  
+            
+         
+        }
+        h1 {
+            text-align: center;     
+        }  
+        label {
+          margin-left: 45px;
+        }
+  
+        #U_Name, #E_id ,#Mob_No,#Create_password,#reenter_password{
+            width: 60%;  
+            margin-left: 0px;
+            padding: 12px;
+            border-radius: 12px;
+        }       
+        button[type="submit"] {
+            background-color: rgb(103, 229, 243);
+            color: #141313;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 17px;
+            display: block;
+            width: 60%;
+            margin: 20px auto 0 auto;
+            border: none;
+            cursor: pointer;
+        }
+        </style>
+</html>

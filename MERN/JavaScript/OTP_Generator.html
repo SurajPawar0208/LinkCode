@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Generator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="otp-card">
+            <h1>OTP Generator</h1>
+            <div class="input-group">
+                <input type="tel" id="otpLength" placeholder="Enter 10-digit Mobile Number" 
+                       minlength="10" maxlength="10" required/>
+                <button onclick="generateOTP()" id="generateBtn">Generate OTP</button>
+            </div>
+            <div id="otpDisplay" class="otp-display hidden">
+                <div class="otp-circle">
+                    <span id="otpCode"></span>
+                </div>
+                <p class="otp-message">Your OTP is valid for 2 minutes</p>
+                <div class="otp-actions">
+                    <button class="btn-copy" onclick="copyOTP()"> Copy</button>
+                    <button class="btn-resend" onclick="generateOTP()"> Resend</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .otp-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 24px;
+        padding: 40px 30px;
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .otp-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 35px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .input-group {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    input {
+        flex: 1;
+        padding: 16px 20px;
+        font-size: 18px;
+        border: 2px solid #e1e5e9;
+        border-radius: 16px;
+        outline: none;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    input:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        transform: scale(1.02);
+    }
+
+    input:valid {
+        border-color: #10b981;
+    }
+
+    button {
+        padding: 16px 24px;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        border-radius: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+    }
+
+    button:active {
+        transform: translateY(0);
+    }
+
+    .otp-display {
+        text-align: center;
+        padding: 30px;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        border-radius: 20px;
+        border: 2px solid #e2e8f0;
+        animation: slideUp 0.5s ease;
+    }
+
+    .otp-circle {
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(135deg, #10b981, #059669);
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+        animation: pulse 2s infinite;
+    }
+
+    #otpCode {
+        font-size: 36px;
+        font-weight: 800;
+        color: white;
+        letter-spacing: 8px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .otp-message {
+        color: #64748b;
+        font-size: 16px;
+        margin-bottom: 25px;
+        font-weight: 500;
+    }
+
+    .otp-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .btn-copy, .btn-resend {
+        padding: 12px 20px;
+        font-size: 14px;
+        background: #f1f5f9;
+        color: #475569;
+        border: 2px solid #e2e8f0;
+        min-width: 90px;
+    }
+
+    .btn-copy:hover, .btn-resend:hover {
+        background: #e2e8f0;
+        transform: translateY(-1px);
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+        }
+        50% {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(16, 185, 129, 0.4);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .input-group {
+            flex-direction: column;
+        }
+        
+        .otp-circle {
+            width: 200px;
+            height: 200px;
+        }
+        
+        #otpCode {
+            font-size: 28px;
+            letter-spacing: 4px;
+        }
+    }
+</style>
+
+<script>
+    function generateOTP() {
+        const phoneInput = document.getElementById('otpLength');
+        const otpDisplay = document.getElementById('otpDisplay');
+        const otpCode = document.getElementById('otpCode');
+        const generateBtn = document.getElementById('generateBtn');
+        
+        if (!phoneInput.checkValidity()) {
+            phoneInput.focus();
+            return;
+        }
+        
+        console.log("Generating OTP for:", phoneInput.value);
+        let otp = Math.floor(100000 + Math.random() * 900000); // 6-digit OTP
+        otpCode.textContent = otp;
+        
+        generateBtn.textContent = 'Generated!';
+        generateBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+        
+        otpDisplay.classList.remove('hidden');
+        otpDisplay.scrollIntoView({ behavior: 'smooth' });
+        
+        setTimeout(() => {
+            generateBtn.textContent = 'Generate OTP';
+            generateBtn.style.background = '';
+        }, 2000);
+    }
+
+    function copyOTP() {
+        const otpCode = document.getElementById('otpCode').textContent;
+        navigator.clipboard.writeText(otpCode).then(() => {
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Copied!';
+            btn.style.background = '#10b981';
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = '';
+            }, 1500);
+        });
+    }
+
+    // Auto-format phone number
+    document.getElementById('otpLength').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '').slice(0, 10);
+        e.target.value = value;
+    });
+</script>
+</body>
+</html>

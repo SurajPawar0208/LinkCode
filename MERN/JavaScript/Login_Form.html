@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <body>
+    <div>
+  <h2>Login Form</h2>
+  <form onsubmit="validateLogin();">
+    <label for="username">Username:</label><br/>
+    <input type="text" id="username" name="username"><br/><br/>
+
+    <label for="password">Password:</label><br/>
+    <input type="password" id="password" name="password"><br/><br/>
+
+    <input type="submit" value="Login">
+  </form>
+  </div>
+  <style>
+               
+        body {
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div {
+            background-color:rgb(255, 198, 198);
+            padding: 40px;
+            border-radius: 20px;  
+            
+         
+        }
+        h2 {
+            text-align: center;     
+        }  
+        label {
+          margin-left: 45px;
+        }
+        
+        #username, #password {
+            width: 60%;  
+            margin-left: 40px;
+            padding: 12px;
+            border-radius: 12px;
+        }       
+        input[type="submit"] {
+            background-color: rgb(198, 137, 255);
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 17px;
+            margin-left: 85px;
+        }
+    </style>
+<script>
+
+function validateLogin() {
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+  if (username === "" || password === "") {
+    alert("Please enter credentials.");
+    return false;
+  }
+ 
+  alert("Login successful!");
+  return true;
+}
+  </script>
+</body> 
+</html>

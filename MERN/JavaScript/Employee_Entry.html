@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punch In</title>
+</head>
+<body>
+  <div>
+    <h2>Punch-IN</h2>
+  <form onsubmit="welcome()">
+    <label for="E_name">Employee Name:</label><br/>
+    <input type="text" id="E_name" name="name"><br/><br/>
+
+    <label for="E_Id">Employee Id</label><br/>
+    <input type="number" id="E_Id" name="Id"><br/><br/>
+
+<label for="shift">Choose a Shift  :</label>
+<select name="shift" id="shift">
+    <option value="morning">Morning</option>
+    <option value="afternoon">Afternoon</option>    
+
+    <option value="night">Night</option>`
+</select><br/><br/>
+    <input type="submit" value="Punch-In">
+  
+  </form>
+  </div>
+  <style>
+               
+        body {
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div {
+            background-color:rgb(255, 198, 198);
+            padding: 40px;
+            border-radius: 20px;  
+            
+         
+        }
+        h2 {
+            text-align: center;     
+        }  
+        label {
+          margin-left: 45px;
+        }
+        
+        #E_name, #E_Id {
+            width: 60%;  
+            margin-left: 40px;
+            padding: 12px;
+            border-radius: 12px;
+        }       
+        input[type="submit"] {
+            background-color: rgb(198, 137, 255);
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 17px;
+            margin-left: 85px;
+        }
+        </style>
+  
+
+</body>
+<script>
+function welcome() {
+  var name = document.getElementById("E_name").value;
+  var id = document.getElementById("E_Id").value;
+  var shift = document.getElementById("shift").value;
+
+  if (name === "") {
+alert("Please enter your employee Name.");
+    return false;  }
+
+  if (id === "") {
+    alert("Please enter your employee ID.");
+    return false;
+  }
+  if (shift === "morning")   {
+    alert("Welcome " + name + "! Good Morning");
+}
+    if (shift === "afternoon")   {
+        alert("Welcome " + name + "! Good Afternoon ");            
+  }
+    if (shift === "night")   {
+        alert("Welcome " + name + "! Good Night ");            
+  } 
+  alert(" You have successfully punched in.");
+  return true;
+}       
+</script>
+</html>
