@@ -92,15 +92,15 @@ const Navbar = () => {
     <>
       <style>{styles}</style>
       <BrowserRouter>
-      <header className="nav">
-        <div className="nav-left">
-          <span className="logo">NETFLIX</span>
+      <header className="nav" style={{display:'flex', justifyContent:'space-between', alignItems:'center', width:'100%'}}>
+        <div className="nav-left" style={{display:'flex', alignItems:'center', gap:'30px'}}>
+          <a href="/" className="logo" style={{textDecoration:'none', fontWeight:'bold', fontSize:'2rem', color:'#E50914', letterSpacing:'2px', marginRight:'30px', fontFamily:'Arial, Helvetica, sans-serif', lineHeight:'1', display:'flex', alignItems:'center', height:'40px'}} aria-label="Netflix Home">NETFLIX</a>
           <a href="/">Home</a>
           <a href="/show">TV Shows</a>
           <a href="/movies">Movies</a>
           <a href="/list">My List</a>
         </div>
-        <div className="nav-right">
+        <div className="nav-right" style={{display:'flex', alignItems:'center'}}>
           <button className="nav-btn">Sign In</button>
         </div>
       </header>

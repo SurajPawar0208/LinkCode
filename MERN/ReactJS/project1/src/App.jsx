@@ -10,6 +10,7 @@ import UseContext from './Components/Hooks/UseContext'
 import PropsDriling from './Components/Hooks/PropsDriling'
 import Home from './Components/Routing/Home'
 import Navbar from './Components/Routing/Navbar'
+import FileHandle from './Components/FormHandling/FormHandle'
 
 export default function App(){
 
@@ -60,6 +61,7 @@ export default function App(){
    {/* <PropsDriling/> */}
 
    {/* <Home/> */}
+   {/* <FileHandle/> */}
    <Navbar/>
   {/* <Props product={products}/> */}
   {/* <Test/>

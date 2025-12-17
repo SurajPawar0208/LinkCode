@@ -1,0 +1,81 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+	background-color: #000000;
+	color: #fff;
+	font-family: 'Archivo Black', system-ui, sans-serif;
+	scroll-behavior: smooth;
+}
+
+#root {
+	background-color:#000000;
+	color: #fff;
+	min-height: 100vh;
+}
+
+/* Custom scrollbar for the entire page */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #374151;
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #4b5563;
+}
+
+/* Neon glow effects */
+.neon-glow-pink {
+	box-shadow: 0 0 20px rgba(255, 79, 206, 0.5);
+}
+
+.neon-glow-green {
+	box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+}
+
+.neon-glow-blue {
+	box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
+.neon-glow-yellow {
+	box-shadow: 0 0 20px rgba(249, 255, 0, 0.5);
+}
+
+/* Animated neon text */
+.neon-text {
+	text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+	animation: neon-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neon-pulse {
+	from {
+		text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+	}
+	to {
+		text-shadow: 0 0 5px currentColor, 0 0 15px currentColor, 0 0 25px currentColor;
+	}
+}
+
+/* Smooth transitions for all elements */
+* {
+	transition: all 0.3s ease;
+}
+
+/* Ensure consistent spacing and typography */
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+	line-height: 1.2;
+}
+
+p {
+	line-height: 1.6;
+}
