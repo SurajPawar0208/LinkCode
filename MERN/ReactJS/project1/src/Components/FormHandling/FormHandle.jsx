@@ -2,21 +2,23 @@ import { useState } from "react";
 import './FormHandle.css';
 
 export default function FormHandle() {
-    const [name, setName] = useState("");
+    const [name, setName] = useState("Enter Text to Convert");
 
     function uppercase(e) {
         e.preventDefault();
         setName(name.toUpperCase());
+         alert(`Text Conerted to UpperCase`);
     }
 
     function lowercase(e) {
         e.preventDefault();
         setName(name.toLowerCase());
+        alert(`Text Conerted to LowerCase`);
     }
 
     function count(e) {
         e.preventDefault();
-        setName(`Character count: ${name.length}`);
+        alert(`Character count: ${name.length}`);
     }
 
     return (
