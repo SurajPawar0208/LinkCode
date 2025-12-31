@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const studentBaseURL = axios.create({
-  baseURL: 'http://localhost:5000/student', // Adjust the base URL to match your backend
+  baseURL: 'http://localhost:5000/api/student'
 });
 
 export { studentBaseURL };

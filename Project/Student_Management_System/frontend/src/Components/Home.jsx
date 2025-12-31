@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Shield, Zap, Search, ArrowRight, GraduationCap, Layers, Globe } from 'lucide-react';
+import { GraduationCap, Shield, Zap, Search, ArrowRight, Library, Layers, Globe } from 'lucide-react';
 
 const Home = () => {
   return (
@@ -10,7 +10,7 @@ const Home = () => {
           <div className="bg-indigo-600 p-2 rounded-lg">
             <GraduationCap className="text-white w-6 h-6" />
           </div>
-          <span className="text-xl font-bold tracking-tight text-slate-800">StudentFlow</span>
+          <span className="text-xl font-bold tracking-tight text-slate-800">StudentHub</span>
         </div>
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
           <a href="#" className="hover:text-indigo-600 transition-colors">Features</a>
@@ -40,11 +40,11 @@ const Home = () => {
         </h1>
 
         <p className="max-w-2xl mx-auto text-lg text-slate-500 mb-10 leading-relaxed">
-          The all-in-one workspace for modern educational institutions. Manage student records, track enrollment, and scale your operations with a beautiful interface designed for clarity and speed.
+          The all-in-one workspace for modern educational institutions. Manage students, track progress, and scale your operations with a beautiful interface designed for clarity and speed.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/addstudent"> <button className="w-full sm:w-auto bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-indigo-700 transition-all transform hover:-translate-y-1 shadow-xl shadow-indigo-200 flex items-center justify-center gap-2">
+        <a href="/student"> <button className="w-full sm:w-auto bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-indigo-700 transition-all transform hover:-translate-y-1 shadow-xl shadow-indigo-200 flex items-center justify-center gap-2">
             Get Started Free <ArrowRight size={20} />
           </button>
           </a>
@@ -57,26 +57,26 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-32 text-left">
           <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-indigo-200 transition-colors group">
             <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform">
-              <Users className="text-indigo-600" />
+              <Library className="text-indigo-600" />
             </div>
-            <h3 className="text-xl font-bold mb-3 text-slate-800">Student Records</h3>
-            <p className="text-slate-500 leading-relaxed">Comprehensive student profiles with contact information, enrollment details, and academic history.</p>
+            <h3 className="text-xl font-bold mb-3 text-slate-800">Student Database</h3>
+            <p className="text-slate-500 leading-relaxed">Automatically organize student information, track enrollment, and maintain comprehensive records with our intuitive database system.</p>
           </div>
 
           <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-indigo-200 transition-colors group">
             <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform">
               <Layers className="text-indigo-600" />
             </div>
-            <h3 className="text-xl font-bold mb-3 text-slate-800">Course Management</h3>
-            <p className="text-slate-500 leading-relaxed">Track course enrollments, manage student progress, and maintain detailed academic records.</p>
+            <h3 className="text-xl font-bold mb-3 text-slate-800">Progress Tracking</h3>
+            <p className="text-slate-500 leading-relaxed">Monitor student performance, attendance, and academic progress across multiple courses and semesters.</p>
           </div>
 
           <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-indigo-200 transition-colors group">
             <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform">
               <Globe className="text-indigo-600" />
             </div>
-            <h3 className="text-xl font-bold mb-3 text-slate-800">Cloud Sync</h3>
-            <p className="text-slate-500 leading-relaxed">Access student data from any device, anywhere in the world, in real-time with secure cloud storage.</p>
+            <h3 className="text-xl font-bold mb-3 text-slate-800">Cloud Integration</h3>
+            <p className="text-slate-500 leading-relaxed">Access student data from any device, anywhere in the world, with secure cloud synchronization and real-time updates.</p>
           </div>
         </div>
       </main>

@@ -1,5 +1,5 @@
 import './App.css'
-import AddStudent from './Components/Student_Function'
+import Student from './Components/Student'
 import Home from './Components/Home'
 import {BrowserRouter,Route,Routes}from 'react-router-dom'
 
@@ -8,7 +8,7 @@ function App() {
  <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home/>}/>
-      <Route path='/addstudent' element={<AddStudent/>}/>
+      <Route path='/student' element={<Student/>}/>
     </Routes>
   </BrowserRouter>
   </>
