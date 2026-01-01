@@ -1,0 +1,7 @@
+- [ ] Fix URL mismatches in useStudents.js to match backend routes
+- [ ] Update useAddStudent to use '/api/student/add'
+- [ ] Update useStudents (list) to use '/api/student/list'
+- [ ] Update useStudent (by id) to use '/api/student/${id}'
+- [ ] Update useUpdateStudent to use '/api/student/update' with body {id, ...data}
+- [ ] Update useDeleteStudent to use '/api/student/delete' with body {id}
+- [ ] Test the add student functionality after fixes
