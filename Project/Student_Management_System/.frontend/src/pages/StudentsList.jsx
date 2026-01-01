@@ -57,8 +57,8 @@ const StudentsList = () => {
                 <Link to={`/students/${student._id}`} className="btn btn-secondary">
                   View
                 </Link>
-                <Link to={`/students/${student._id}/edit`} className="btn btn-secondary">
-                  Edit
+                <Link to={`/students/${student._id}/update`} className="btn btn-secondary">
+                  Update
                 </Link>
                 <Button
                   variant="danger"

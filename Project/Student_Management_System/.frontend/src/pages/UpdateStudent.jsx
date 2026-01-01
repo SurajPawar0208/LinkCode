@@ -15,7 +15,7 @@ const studentSchema = z.object({
   address: z.string().optional(),
 });
 
-const EditStudent = () => {
+const UpdateStudent = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { data, isLoading } = useStudent(id);
@@ -57,7 +57,7 @@ const EditStudent = () => {
   return (
     <div className="container mx-auto p-6">
       <div className="max-w-md mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Edit Student</h1>
+        <h1 className="text-3xl font-bold mb-6">Update Student</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="card">
           <FormInput
             label="Name"
@@ -101,4 +101,4 @@ const EditStudent = () => {
   );
 };
 
-export default EditStudent;
+export default UpdateStudent;
