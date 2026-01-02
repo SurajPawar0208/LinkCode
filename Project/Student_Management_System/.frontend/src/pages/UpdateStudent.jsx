@@ -30,19 +30,21 @@ const UpdateStudent = () => {
     resolver: zodResolver(studentSchema),
   });
 
-  const student = data?.student;
+  const student = data;
 
   if (isLoading) return <div className="text-center">Loading...</div>;
 
-  if (student) {
-    reset({
-      name: student.name,
-      email: student.email,
-      age: student.age,
-      course: student.course,
-      address: student.address || '',
-    });
-  }
+  useEffect(() => {
+    if (student) {
+      reset({
+        name: student.name,
+        email: student.email,
+        age: student.age,
+        course: student.course,
+        address: student.address || '',
+      });
+    }
+  }, [student, reset]);
 
   const onSubmit = async (data) => {
     try {

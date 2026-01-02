@@ -5,7 +5,7 @@ const studentRouter = require('./Routes/studentRoutes');
 const cors = require('cors');
 const errorHandler = require('./Middleware/errorHandler');
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 const app = express();
 connectDB();

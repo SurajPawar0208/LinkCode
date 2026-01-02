@@ -1,7 +1,15 @@
-- [ ] Fix URL mismatches in useStudents.js to match backend routes
-- [ ] Update useAddStudent to use '/api/student/add'
-- [ ] Update useStudents (list) to use '/api/student/list'
-- [ ] Update useStudent (by id) to use '/api/student/${id}'
-- [ ] Update useUpdateStudent to use '/api/student/update' with body {id, ...data}
-- [ ] Update useDeleteStudent to use '/api/student/delete' with body {id}
-- [ ] Test the add student functionality after fixes
+# TODO: Fix Update Issue on Students Page
+
+## Steps to Complete:
+1. ✅ Fix infinite re-renders in UpdateStudent.jsx by using useEffect for form reset.
+2. ✅ Add React Router future flags to App.jsx to resolve warnings.
+3. ✅ Corrected student data access in UpdateStudent.jsx.
+4. ✅ Corrected student data access in StudentDetail.jsx.
+5. ✅ Test the update functionality on the student details card.
+
+# TODO: Enable View Button with Student Data
+
+## Steps to Complete:
+1. ✅ Verify that the View button in StudentsList.jsx links to StudentDetail page.
+2. ✅ Ensure StudentDetail page displays student data correctly.
+3. ✅ Test clicking View button shows student details.

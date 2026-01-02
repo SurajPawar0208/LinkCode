@@ -8,7 +8,7 @@ const StudentDetail = () => {
 
   if (isLoading) return <div className="text-center">Loading...</div>;
 
-  const student = data?.student;
+  const student = data;
 
   if (!student) return <div className="text-center">Student not found</div>;
 
@@ -40,6 +40,7 @@ const StudentDetail = () => {
             <p className="text-lg">{student.course}</p>
           </div>
           {student.address && (
+            
             <div>
               <label className="block text-sm font-medium">Address</label>
               <p className="text-lg">{student.address}</p>
@@ -52,7 +53,7 @@ const StudentDetail = () => {
         </div>
 
         <div className="flex space-x-4 mt-6">
-          <Link to={`/students/${id}/edit`} className="btn btn-primary">
+          <Link to={`/students/${id}/update`} className="btn btn-primary">
             Edit Student
           </Link>
         </div>
