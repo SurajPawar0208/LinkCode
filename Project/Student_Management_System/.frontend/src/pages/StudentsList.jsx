@@ -15,7 +15,7 @@ const StudentsList = () => {
       try {
         await deleteStudentMutation.mutateAsync(id);
         toast.success('Student deleted successfully');
-      } catch (error) {
+      } catch {
         toast.error('Failed to delete student');
       }
     }
@@ -42,6 +42,8 @@ const StudentsList = () => {
           className="input"
         />
       </div>
+
+
 
       <div className="grid gap-4">
         {data?.students?.map((student) => (

@@ -1,15 +1,6 @@
-# TODO: Fix Update Issue on Students Page
+# TODO: Add Recent Students Section
 
-## Steps to Complete:
-1. ✅ Fix infinite re-renders in UpdateStudent.jsx by using useEffect for form reset.
-2. ✅ Add React Router future flags to App.jsx to resolve warnings.
-3. ✅ Corrected student data access in UpdateStudent.jsx.
-4. ✅ Corrected student data access in StudentDetail.jsx.
-5. ✅ Test the update functionality on the student details card.
-
-# TODO: Enable View Button with Student Data
-
-## Steps to Complete:
-1. ✅ Verify that the View button in StudentsList.jsx links to StudentDetail page.
-2. ✅ Ensure StudentDetail page displays student data correctly.
-3. ✅ Test clicking View button shows student details.
+- [ ] Add `useRecentStudents` hook in `.frontend/src/hooks/useStudents.js` to fetch the most recent student (limit 1, sorted by createdAt desc)
+- [ ] Update `.frontend/src/pages/StudentsList.jsx` to integrate the "Recent Students" section above the main list, displaying the last added student with key details (name, email, age, course, enrollment date)
+- [ ] Test the frontend to ensure the recent student displays correctly
+- [ ] Ensure Recent Students updates immediately when a new student is added (via navigation remount)

@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import { useStudents } from '../hooks/useStudents';
+import { useStudents, useRecentStudents } from '../hooks/useStudents';
 
 const Dashboard = () => {
   const { data, isLoading } = useStudents(1, 5); // Get first 5 students for dashboard
+  const { data: recentStudent, isLoading: recentLoading } = useRecentStudents();
 
-  if (isLoading) return <div className="text-center">Loading...</div>;
+  if (isLoading || recentLoading) return <div className="text-center">Loading...</div>;
 
   return (
     <div className="container mx-auto p-6">
@@ -19,7 +20,16 @@ const Dashboard = () => {
         </div>
         <div className="card">
           <h3 className="text-xl font-semibold mb-2">Recent Students</h3>
-          <p className="text-lg">View latest additions</p>
+          {recentStudent ? (
+            <div className="flex flex-col">
+              <p className="text-lg font-semibold">{recentStudent.name}</p>
+              <Link to={`/students/${recentStudent._id}`} className="btn btn-secondary mt-2">
+                View
+              </Link>
+            </div>
+          ) : (
+            <p className="text-lg">No recent students</p>
+          )}
         </div>
         <div className="card">
           <h3 className="text-xl font-semibold mb-2">Quick Actions</h3>

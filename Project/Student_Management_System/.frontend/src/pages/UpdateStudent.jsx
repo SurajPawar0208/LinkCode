@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -18,7 +19,7 @@ const studentSchema = z.object({
 const UpdateStudent = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { data, isLoading } = useStudent(id);
+  const { data, isLoading, error } = useStudent(id);
   const updateStudentMutation = useUpdateStudent();
 
   const {
@@ -28,11 +29,16 @@ const UpdateStudent = () => {
     reset,
   } = useForm({
     resolver: zodResolver(studentSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      age: '',
+      course: '',
+      address: '',
+    },
   });
 
   const student = data;
-
-  if (isLoading) return <div className="text-center">Loading...</div>;
 
   useEffect(() => {
     if (student) {
@@ -46,12 +52,16 @@ const UpdateStudent = () => {
     }
   }, [student, reset]);
 
+  if (isLoading) return <div className="text-center">Loading...</div>;
+
+  if (error) return <div className="text-center text-red-500">Error loading student: {error.message}</div>;
+
   const onSubmit = async (data) => {
     try {
       await updateStudentMutation.mutateAsync({ id, ...data });
       toast.success('Student updated successfully');
       navigate('/students');
-    } catch (error) {
+    } catch {
       toast.error('Failed to update student');
     }
   };

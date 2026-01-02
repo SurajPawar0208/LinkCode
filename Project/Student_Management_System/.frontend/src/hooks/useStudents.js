@@ -29,7 +29,7 @@ export const useStudent = (id) => {
         try {
 
         const response = await axios.get(`http://localhost:5001/api/student/${id}`);
-        setStudent(response.data);
+        setStudent(response.data.student);
         setLoading(false);
         } catch (err) {
         setError(err);
@@ -70,3 +70,25 @@ export const useDeleteStudent = () => {
     mutateAsync: deleteStudent,
     };
 };
+
+export const useRecentStudents = () => {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    useEffect(() => {
+    const fetchRecentStudent = async () => {
+        try {
+        const response = await axios.get(`http://localhost:5001/api/student/list?page=1&limit=1&sort=-createdAt`);
+        setData(response.data.students[0] || null);
+        setLoading(false);
+        } catch (err) {
+        setError(err);
+        setLoading(false);
+        }
+    };
+    fetchRecentStudent();
+    }, []);
+    return { data, isLoading: loading, error };
+};
+
+
