@@ -1,10 +1,4 @@
-/**
- * Task Management Application
- * Built with Vanilla JavaScript, HTML5, and CSS3
- * Features: CRUD operations, local storage, drag & drop, keyboard shortcuts
- */
-
-class TaskManager {
+ class TaskManager {
     constructor() {
         this.tasks = [];
         this.currentFilter = "all";
